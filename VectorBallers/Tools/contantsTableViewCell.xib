@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="contactCell" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="contantsTableViewCell" customModule="AECiPEMS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Aa-6B-yYc">
+                        <rect key="frame" x="25" y="16" width="54" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="3Aa-6B-yYc" secondAttribute="height" multiplier="1:1" id="QIb-Mi-zFm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张小亮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQ9-cK-TSb">
+                        <rect key="frame" x="91" y="33" width="51" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6G-Sn-Gvq">
+                        <rect key="frame" x="343" y="32" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="KE1-vZ-G4J"/>
+                            <constraint firstAttribute="width" constant="22" id="dL2-ug-uAR"/>
+                        </constraints>
+                        <state key="selected" title="a" image="alarm_iconCheckmarkGreen"/>
+                        <connections>
+                            <action selector="btnChoiceClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tbz-i3-AnH"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3Aa-6B-yYc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="07b-jH-mwi"/>
+                    <constraint firstItem="A6G-Sn-Gvq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22.5" id="73w-zk-i06"/>
+                    <constraint firstItem="YQ9-cK-TSb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8.5" id="FYQ-bl-III"/>
+                    <constraint firstItem="YQ9-cK-TSb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hix-24-6Zw"/>
+                    <constraint firstItem="YQ9-cK-TSb" firstAttribute="leading" secondItem="3Aa-6B-yYc" secondAttribute="trailing" constant="12" id="Y9J-wV-Wxc"/>
+                    <constraint firstAttribute="trailing" secondItem="A6G-Sn-Gvq" secondAttribute="trailing" constant="10" id="bb8-71-wNH"/>
+                    <constraint firstAttribute="bottom" secondItem="A6G-Sn-Gvq" secondAttribute="bottom" constant="27.5" id="fJ7-1k-4Og"/>
+                    <constraint firstAttribute="bottom" secondItem="3Aa-6B-yYc" secondAttribute="bottom" constant="16" id="kJe-YG-GrZ"/>
+                    <constraint firstItem="3Aa-6B-yYc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="m0g-2P-hHJ"/>
+                    <constraint firstItem="A6G-Sn-Gvq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qF2-ag-4uu"/>
+                    <constraint firstItem="A6G-Sn-Gvq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27.5" id="uoF-tX-T4e"/>
+                    <constraint firstItem="A6G-Sn-Gvq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zSh-PV-HAD"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="FYQ-bl-III"/>
+                        <exclude reference="73w-zk-i06"/>
+                        <exclude reference="fJ7-1k-4Og"/>
+                        <exclude reference="uoF-tX-T4e"/>
+                        <exclude reference="zSh-PV-HAD"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="choiceBtn" destination="A6G-Sn-Gvq" id="l1V-Tb-kCq"/>
+                <outlet property="iconImageV" destination="3Aa-6B-yYc" id="YbG-s0-aAX"/>
+                <outlet property="nameLabel" destination="YQ9-cK-TSb" id="4Ir-i7-SpX"/>
+            </connections>
+            <point key="canvasLocation" x="-25.5" y="319.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="alarm_iconCheckmarkGreen" width="22" height="22"/>
+    </resources>
+</document>
