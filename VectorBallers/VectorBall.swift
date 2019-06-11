@@ -23,9 +23,9 @@ class VectorBall: CALayer {
         self.radius = radius
         self.backgroundColor = UIColor.randomColor.cgColor
         self.cornerRadius = radius / 2.0
+        self.velocity = velocity
         displayLink = CADisplayLink.init(target: self, selector: #selector(refreshFrame))
         displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
-        jdhdjsah
     }
     
     override init(layer: Any) {
@@ -37,13 +37,31 @@ class VectorBall: CALayer {
     }
     
     @objc func refreshFrame() -> Void {
+//        displayLink.duration
         move()
     }
     
-    func move(){
+    private func move(){
+        let dis = distantInterval(intalval: displayLink.duration)
         var p = self.frame.origin
-        p.x += 1
-        p.y += 1
+        p.x += dis.dX
+        p.y += dis.dY
         self.frame.origin = p
+    }
+    
+    private func distantInterval(intalval:Double) -> (dX:CGFloat,dY:CGFloat){
+        if(velocity.isNaN || velocity.isZero){
+            return (0,0)
+        }
+        let dDis = velocity * CGFloat(intalval)
+        let dx = (vector.A * dDis) / CGFloat(
+                                            sqrt(
+                                            Double(
+                                                pow(vector.A , 2) + pow(vector.B , 2)
+                                            )
+                                        )
+                                    )
+        let dy = vector.B / vector.A * dx
+        return (dx,dy)
     }
 }
