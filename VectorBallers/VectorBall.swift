@@ -25,6 +25,7 @@ class VectorBall: CALayer {
         self.cornerRadius = radius / 2.0
         displayLink = CADisplayLink.init(target: self, selector: #selector(refreshFrame))
         displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+        jdhdjsah
     }
     
     override init(layer: Any) {
