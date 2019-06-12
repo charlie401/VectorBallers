@@ -9,7 +9,7 @@
 import UIKit
 
 class VectorBall: CALayer {
-    
+    //测试github
     private var displayLink:CADisplayLink!
     private var radius:CGFloat      = 0//半径
     private var velocity:CGFloat    = 0//速度
