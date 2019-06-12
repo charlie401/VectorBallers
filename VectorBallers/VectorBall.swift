@@ -28,6 +28,8 @@ class VectorBall: CALayer {
         self.vector = vector
         self.posit = posit
         self.mass = mass
+        self.setNeedsLayout()
+        
         displayLink = CADisplayLink.init(target: self, selector: #selector(refreshFrame))
         displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
@@ -40,17 +42,19 @@ class VectorBall: CALayer {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func refreshFrame() -> Void {
-//        displayLink.duration
+    @objc func refreshFrame() {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
         move()
+        CATransaction.commit()
     }
     
     private func move(){
         let dis = distantInterval(intalval: displayLink.duration)
-        var p = self.frame.origin
+        var p = self.position
         p.x += dis.dX
         p.y += dis.dY
-        self.frame.origin = p
+        self.position = p
     }
     
     private func distantInterval(intalval:Double) -> (dX:CGFloat,dY:CGFloat){
@@ -63,4 +67,6 @@ class VectorBall: CALayer {
         let dx = dDis * cos(angle)
         return (dx,dy)
     }
+    
+    
 }
