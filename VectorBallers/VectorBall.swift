@@ -11,11 +11,12 @@ import UIKit
 class VectorBall: CALayer {
     
     private var displayLink:CADisplayLink!
-    private var radius:CGFloat      = 0
-    private var velocity:CGFloat    = 0
-    private var mass:CGFloat        = 0
-    private var vector:(A:CGFloat,B:CGFloat) = (A:0,B:0)
-    private var posit:(X:CGFloat,Y:CGFloat)   = (X:0,Y:0)
+    private var radius:CGFloat      = 0//半径
+    private var velocity:CGFloat    = 0//速度
+    private var mass:CGFloat        = 0//质量
+    private var vector:(A:CGFloat,B:CGFloat) = (A:0,B:0)    //运动方向
+    private var posit:(X:CGFloat,Y:CGFloat)   = (X:0,Y:0)   //初始化位置
+    private var puissance:(X:CGFloat,Y:CGFloat)   = (X:0,Y:0)//施加的外作用力
 
     init(radius:CGFloat = 10, velocity:CGFloat = 1 ,mass:CGFloat = 1,vector:(A:CGFloat,B:CGFloat) = (1,1), posit:(X:CGFloat,Y:CGFloat) = (1,1)) {
         super.init()
@@ -57,15 +58,9 @@ class VectorBall: CALayer {
             return (0,0)
         }
         let dDis = velocity * CGFloat(intalval)
-        atan(vector.B / vector.A)
-        let dx = (vector.A * dDis) / CGFloat(
-                                            sqrt(
-                                            Double(
-                                                pow(vector.A , 2) + pow(vector.B , 2)
-                                            )
-                                        )
-                                    )
-        let dy = vector.B / vector.A * dx
+        let angle = atan(vector.B / vector.A)
+        let dy = dDis * sin(angle)
+        let dx = dDis * cos(angle)
         return (dx,dy)
     }
 }
