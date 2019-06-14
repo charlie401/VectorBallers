@@ -18,8 +18,6 @@ class ViewController: UIViewController {
         btn.setTitle("点击", for: UIControlState.normal)
         btn.setTitleColor(UIColor.randomColor, for: UIControlState.normal)
         btn.setTitleColor(UIColor.randomColor, for: UIControlState.highlighted)
-//        btn.showEdges()
-//        btn.backgroundColor = UIColor.randomColor
         view.addSubview(btn)
        
         // Do any additional setup after loading the view, typically from a nib.
