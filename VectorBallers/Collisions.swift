@@ -18,8 +18,8 @@ class Collision {
     
     func collisionDetect(){
         
-    }//俄 sad sad sad sa ⌚️
-    
+    }
+    //git ceshi
     private func getRelId(a:VectorBall,b:VectorBall) -> String{
         let ah = String.init(a.hashValue)
         let bh = String.init(b.hashValue)
