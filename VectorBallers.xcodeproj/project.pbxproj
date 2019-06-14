@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6238AB8A22B2035A00358389 /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238AB8922B2035A00358389 /* Collisions.swift */; };
 		62D6B19D22AF4920008142B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D6B19C22AF4920008142B7 /* AppDelegate.swift */; };
 		62D6B19F22AF4920008142B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D6B19E22AF4920008142B7 /* ViewController.swift */; };
 		62D6B1A222AF4920008142B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62D6B1A022AF4920008142B7 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6238AB8922B2035A00358389 /* Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		62D6B19922AF4920008142B7 /* VectorBallers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VectorBallers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D6B19C22AF4920008142B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62D6B19E22AF4920008142B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				62D6B19C22AF4920008142B7 /* AppDelegate.swift */,
 				62D6B19E22AF4920008142B7 /* ViewController.swift */,
 				62D6B1CD22AF4ABA008142B7 /* VectorBall.swift */,
+				6238AB8922B2035A00358389 /* Collisions.swift */,
 				62D6B1A022AF4920008142B7 /* Main.storyboard */,
 				62D6B1A622AF4920008142B7 /* Assets.xcassets */,
 				62D6B1A822AF4920008142B7 /* LaunchScreen.storyboard */,
@@ -281,6 +284,7 @@
 			files = (
 				62D6B1A522AF4920008142B7 /* VectorBallers.xcdatamodeld in Sources */,
 				62D6B1E722AF5282008142B7 /* StringExtension.swift in Sources */,
+				6238AB8A22B2035A00358389 /* Collisions.swift in Sources */,
 				62D6B1CE22AF4ABA008142B7 /* VectorBall.swift in Sources */,
 				62D6B1E622AF5282008142B7 /* enumExtension.swift in Sources */,
 				62D6B1E522AF5282008142B7 /* UIColorExtension.swift in Sources */,
