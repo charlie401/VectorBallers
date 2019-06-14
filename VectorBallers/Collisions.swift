@@ -17,7 +17,7 @@ class Collision {
     private var distantInObjects:Dictionary<String,CGFloat> = Dictionary<String,CGFloat>.init()
     
     func collisionDetect(){
-        
+        //加厚收纳柜
     }
     //git ceshi
     private func getRelId(a:VectorBall,b:VectorBall) -> String{
