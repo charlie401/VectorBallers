@@ -72,7 +72,9 @@ class Collisions {
 
     //更新两个obj之间的距离信息
     private func updateDis(){
+        
         var ballsCollision = Set<VectorBall>.init()
+        
         for objR in objectRel{
             let p1 = objR.value.A.position
             let p2 = objR.value.B.position
