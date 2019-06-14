@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let collisions = Collisions.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,8 @@ class ViewController: UIViewController {
         
         view.layer.addSublayer(ball1)
         view.layer.addSublayer(ball2)
+        collisions.putObject(object: ball1)
+        collisions.putObject(object: ball2)
     }
 
 }

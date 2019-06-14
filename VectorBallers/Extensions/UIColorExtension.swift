@@ -184,6 +184,13 @@ extension UIView{
     }
 }
 
+extension CALayer{
+    func showEdges(_ boderWidth:CGFloat = 1,color:UIColor = UIColor.randomColor){
+        self.borderWidth = boderWidth
+        self.borderColor = color.cgColor
+    }
+}
+
 
 //var count = 0
 //extension UIImageView{

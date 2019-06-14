@@ -10,8 +10,8 @@ import UIKit
 
 class VectorBall: CALayer {
     //测试github
-    private var displayLink:CADisplayLink!
-    private var radius:CGFloat      = 0//半径
+//    private var displayLink:CADisplayLink!
+    var radius:CGFloat      = 0//半径
     private var velocity:CGFloat    = 0//速度
     private var mass:CGFloat        = 0//质量
     private var vector:(A:CGFloat,B:CGFloat) = (A:0,B:0)    //运动方向
@@ -30,8 +30,8 @@ class VectorBall: CALayer {
         self.mass = mass
         self.setNeedsLayout()
         
-        displayLink = CADisplayLink.init(target: self, selector: #selector(refreshFrame))
-        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+//        displayLink = CADisplayLink.init(target: self, selector: #selector(refreshFrame))
+//        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
     override init(layer: Any) {
@@ -42,15 +42,15 @@ class VectorBall: CALayer {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func refreshFrame() {
+    func refreshFrame(intalval:Double) {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        move()
+        move(intalval: intalval)
         CATransaction.commit()
     }
     
-    private func move(){
-        let dis = distantInterval(intalval: displayLink.duration)
+    private func move(intalval:Double){
+        let dis = distantInterval(intalval: intalval)
         var p = self.position
         p.x += dis.dX
         p.y += dis.dY
