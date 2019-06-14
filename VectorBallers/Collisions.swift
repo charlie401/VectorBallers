@@ -18,7 +18,7 @@ class Collision {
     
     func collisionDetect(){
         
-    }//俄 sad sad sad sad sad 说
+    }//俄 sad sad sad sa ⌚️
     
     private func getRelId(a:VectorBall,b:VectorBall) -> String{
         let ah = String.init(a.hashValue)
