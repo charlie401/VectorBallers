@@ -78,8 +78,6 @@ class Collisions {
         for objR in objectRel{
             let p1 = objR.value.A.position
             let p2 = objR.value.B.position
-            outOfEdgeDetection(obj: objR.value.A)
-            outOfEdgeDetection(obj: objR.value.B)
             var pointDis = calculateDistant(p1: p1, p2: p2)
                 pointDis = pointDis - (objR.value.A.radius  + objR.value.B.radius) / 2.0
 //            distantInObjects[objR.key] = pointDis
@@ -95,6 +93,7 @@ class Collisions {
             }else{
                 obj.showEdges(5, color: UIColor.red)
             }
+            outOfEdgeDetection(obj: obj)
             obj.refreshFrame(intalval: displayLink.duration)
         }
     }
@@ -108,19 +107,21 @@ class Collisions {
     func outOfEdgeDetection(obj:VectorBall){
         let point = obj.position
         let rad = obj.radius / 2.0
-        let vector = obj.vector
+        var vector = obj.getVector()
         
         if(point.x - rad <= 0){
-            obj.vector = (vector.A,-vector.B)
-        }else if(point.x + rad >= 750){
-            obj.vector = (vector.A,-vector.B)
+            obj.vector = (abs(vector.A),vector.B)
+        }else if(point.x + rad >= 450){
+            obj.vector = (-abs(vector.A),vector.B)
         }
-        
+        vector = obj.getVector()
         if(point.y - rad <= 0){
-            obj.vector = (-vector.A,vector.B)
+            obj.vector = (vector.A,abs(vector.B))
+
         }else if(point.y + rad >= 750){
-            obj.vector = (-vector.A,vector.B)
+            obj.vector = (vector.A,-abs(vector.B))
         }
     }
+    
     
 }

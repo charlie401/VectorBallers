@@ -36,8 +36,8 @@ class ViewController: UIViewController {
     }
 
     @objc func addBallers() {
-        let ball1 = VectorBall.init(radius: 40, velocity: 60, mass: 10, vector: (1,-1), posit: (10,660))
-        let ball2 = VectorBall.init(radius: 40, velocity: 20, mass: 10, vector: (1,1), posit: (100,160))
+        let ball1 = VectorBall.init(radius: 40, velocity: 160, mass: 10, vector: (-1,1), posit: (400,400))
+        let ball2 = VectorBall.init(radius: 40, velocity: 120, mass: 10, vector: (1,1), posit: (100,160))
         
         view.layer.addSublayer(ball1)
         view.layer.addSublayer(ball2)

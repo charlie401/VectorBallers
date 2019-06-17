@@ -25,17 +25,7 @@ class VectorBall: CALayer {
         self.backgroundColor = UIColor.randomColor.cgColor
         self.cornerRadius = radius / 2.0
         self.velocity = velocity
-        self.vector =
-        (
-            (
-                vector.A / abs(vector.A)
-                    * cos(atan(vector.B/vector.A))
-            ),
-            (
-                vector.B / abs(vector.B)
-                    * cos(atan(vector.A/vector.B))
-            )
-        )
+        setVector(vector: vector)
         self.posit = posit
         self.mass = mass
         self.setNeedsLayout()
@@ -47,6 +37,24 @@ class VectorBall: CALayer {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setVector(vector:(A:CGFloat,B:CGFloat) ){
+        self.vector =
+            (
+                (
+                    vector.A / abs(vector.A)
+                        * cos(atan(vector.B/vector.A))
+                ),
+                (
+                    vector.B / abs(vector.B)
+                        * cos(atan(vector.A/vector.B))
+                )
+        )
+    }
+    
+    public func getVector() -> (A:CGFloat,B:CGFloat){
+        return self.vector
     }
     
     func refreshFrame(intalval:Double) {
@@ -70,8 +78,16 @@ class VectorBall: CALayer {
         }
         let dDis = velocity * CGFloat(intalval)
         let angle = atan(vector.B / vector.A)
-        let dy = dDis * sin(angle)
-        let dx = dDis * cos(angle)
+        let dy = getV(value: abs(dDis * sin(angle)), fushu: vector.B)
+        let dx = getV(value: abs(dDis * cos(angle)), fushu: vector.A )  //* vector.A / abs(vector.A)
         return (dx,dy)
+    }
+    
+    private func getV(value:CGFloat,fushu:CGFloat) -> CGFloat {
+        if(fushu >= 0){
+            return value
+        }else{
+            return -value
+        }
     }
 }
