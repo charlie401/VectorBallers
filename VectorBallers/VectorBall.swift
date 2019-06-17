@@ -14,7 +14,7 @@ class VectorBall: CALayer {
     var radius:CGFloat      = 0//半径
     private var velocity:CGFloat    = 0//速度
     private var mass:CGFloat        = 0//质量
-    private var vector:(A:CGFloat,B:CGFloat) = (A:0,B:0)    //运动方向
+    var vector:(A:CGFloat,B:CGFloat) = (A:0,B:0)    //运动方向
     private var posit:(X:CGFloat,Y:CGFloat)   = (X:0,Y:0)   //初始化位置
     private var puissance:(X:CGFloat,Y:CGFloat)   = (X:0,Y:0)//施加的外作用力
 
@@ -25,13 +25,20 @@ class VectorBall: CALayer {
         self.backgroundColor = UIColor.randomColor.cgColor
         self.cornerRadius = radius / 2.0
         self.velocity = velocity
-        self.vector = vector
+        self.vector =
+        (
+            (
+                vector.A / abs(vector.A)
+                    * cos(atan(vector.B/vector.A))
+            ),
+            (
+                vector.B / abs(vector.B)
+                    * cos(atan(vector.A/vector.B))
+            )
+        )
         self.posit = posit
         self.mass = mass
         self.setNeedsLayout()
-        
-//        displayLink = CADisplayLink.init(target: self, selector: #selector(refreshFrame))
-//        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
     override init(layer: Any) {
@@ -67,6 +74,4 @@ class VectorBall: CALayer {
         let dx = dDis * cos(angle)
         return (dx,dy)
     }
-    
-    
 }
