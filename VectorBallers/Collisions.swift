@@ -28,45 +28,12 @@ class Collisions {
     }
     
     func collisionDetect(){
-//        b.backgroundColor = UIColor.clear.cgColor
         updateDis()
-        var ballsCollision = Set<VectorBall>.init()
-        var ballsM = Set<VectorBall>.init()
-        for dis in distantInObjects {
-            if let bs = objectRel[dis.key]{
-                if (dis.value <= 0){
-                    ballsCollision.insert(bs.A)
-                    ballsCollision.insert(bs.B)
-                }else{
-                    let bs = objectRel[dis.key]
-                    bs?.A.showEdges(0, color: UIColor.clear)
-                    bs?.B.showEdges(0, color: UIColor.clear)
-//                    bs?.A.isHidden = false
-//                    bs?.B.isHidden = false
-                }
-                if(!ballsM.contains(bs.A)){
-                    ballsM.insert(bs.A)
-                    bs.A.refreshFrame(intalval: displayLink.duration)
-                }
-                if(!ballsM.contains(bs.B)){
-                    ballsM.insert(bs.B)
-                    bs.B.refreshFrame(intalval: displayLink.duration)
-                }
-            }
-        }
-        for ball in ballsCollision {
-//            ball.backgroundColor = UIColor.randomColor.cgColor
-            ball.showEdges(5, color: UIColor.red)
-//            ball.isHidden = true
-//            ball.refreshFrame(intalval: displayLink.duration)
-        }
-        
     }
     
     private func getRelId(a:VectorBall,b:VectorBall) -> String{
         let ah = String.init(a.hashValue)
         let bh = String.init(b.hashValue)
-        
         return ah > bh ? (ah + bh) : (bh + ah)
     }
     
@@ -100,12 +67,26 @@ class Collisions {
     
     //更新两个obj之间的距离信息
     private func updateDis(){
+        var ballsCollision = Set<VectorBall>.init()
         for objR in objectRel{
             let p1 = objR.value.A.position
             let p2 = objR.value.B.position
             var pointDis = calculateDistant(p1: p1, p2: p2)
                 pointDis = pointDis - (objR.value.A.radius  + objR.value.B.radius) / 2.0
             distantInObjects[objR.key] = pointDis
+            if(pointDis <= 0){
+                ballsCollision.insert(objR.value.A)
+                ballsCollision.insert(objR.value.B)
+            }
+        }
+        
+        for obj in objectSet {
+            if(!ballsCollision.contains(obj)){
+                obj.showEdges(0, color: UIColor.clear)
+            }else{
+                obj.showEdges(5, color: UIColor.red)
+            }
+            obj.refreshFrame(intalval: displayLink.duration)
         }
     }
     
